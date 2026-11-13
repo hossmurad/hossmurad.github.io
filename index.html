@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Md Murad Hossain | Portfolio</title>
+  <meta name="description" content="Portfolio of Md Murad Hossain: web development, IoT, and machine learning projects.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f2f6fb;
+      --card: #ffffff;
+      --text: #1b2430;
+      --muted: #5b6776;
+      --accent: #1f3a5f;
+      --accent-2: #3d6fa8;
+      --line: #dbe4ef;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1722;
+        --bg-soft: #141f2e;
+        --card: #182436;
+        --text: #e8eef6;
+        --muted: #9fb0c4;
+        --accent: #8db4e6;
+        --accent-2: #8db4e6;
+        --line: #26364b;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navigation */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg); border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font-weight: 700; color: var(--accent); }
+    .nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+    .nav ul a { color: var(--muted); font-size: 0.95rem; }
+    .nav ul a:hover { color: var(--accent); text-decoration: none; }
+    @media (max-width: 700px) { .nav ul { display: none; } }
+
+    /* Hero */
+    .hero { background: var(--bg-soft); padding: 64px 0; }
+    .hero .wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 8px; color: var(--accent); line-height: 1.15; }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 24px; max-width: 520px; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-weight: 600; margin: 0 10px 10px 0;
+    }
+    .btn.primary { background: var(--accent); color: var(--bg); }
+    .btn.ghost { border: 1px solid var(--accent); color: var(--accent); }
+    .btn:hover { text-decoration: none; opacity: 0.9; }
+    .avatar {
+      width: 190px; height: 190px; border-radius: 50%; flex: none;
+      border: 4px solid var(--card); box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      object-fit: cover; background: var(--line);
+    }
+    .avatar.initials {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem; font-weight: 700; color: var(--accent);
+    }
+    @media (max-width: 700px) {
+      .hero .wrap { flex-direction: column-reverse; text-align: center; }
+      .hero p.lead { margin-left: auto; margin-right: auto; }
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section.alt { background: var(--bg-soft); }
+    h2 {
+      font-size: 1.6rem; color: var(--accent); margin: 0 0 24px;
+      padding-bottom: 8px; border-bottom: 2px solid var(--line);
+    }
+    h3 { margin: 0 0 4px; font-size: 1.1rem; }
+    .meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 8px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+    .grid.two { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 12px; padding: 20px;
+    }
+    .card ul { margin: 8px 0 0; padding-left: 20px; }
+    .card li { margin-bottom: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+    .tag {
+      background: var(--bg-soft); border: 1px solid var(--line);
+      color: var(--accent); border-radius: 999px; padding: 2px 10px; font-size: 0.82rem;
+    }
+    .skill-group { margin-bottom: 14px; }
+    .skill-group h3 { font-size: 0.95rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .timeline { border-left: 2px solid var(--line); padding-left: 20px; }
+    .timeline .item { margin-bottom: 22px; position: relative; }
+    .timeline .item::before {
+      content: ""; position: absolute; left: -27px; top: 7px;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+    }
+
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-links a {
+      border: 1px solid var(--line); background: var(--card);
+      padding: 10px 18px; border-radius: 8px; font-weight: 600;
+    }
+    footer { text-align: center; color: var(--muted); padding: 28px 0; font-size: 0.9rem; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap">
+      <span class="logo">Murad Hossain</span>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Hi, I'm Md Murad Hossain</h1>
+        <p class="lead">I build web applications and explore IoT and machine learning. I enjoy learning new things and turning ideas into working software.</p>
+        <a class="btn primary" href="#projects">View My Work</a>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+        <!-- Optional: after you upload a CV PDF (without personal details) named Murad_Hossain_CV.pdf, remove this comment:
+        <a class="btn ghost" href="Murad_Hossain_CV.pdf" download>Download CV</a>
+        -->
+      </div>
+      <!-- Put your photo in the same folder as index.html and name it photo.jpg -->
+      <img class="avatar" src="photo.jpg" alt="Photo of Md Murad Hossain"
+           onerror="this.outerHTML='<div class=&quot;avatar initials&quot;>MH</div>'">
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <h2>About Me</h2>
+      <p>I hold a B.Sc. in Computer Science and Engineering from Uttara University (CGPA 3.94/4.00). I have hands-on experience building e-commerce websites and MERN-stack applications, and I have worked on IoT and machine learning research through two thesis projects.</p>
+      <p>I am a quick learner who can pick up and work on any subject or technology. I served as Class Representative for four years and as General Secretary of the university Programming Club. I am looking for a developer role where I can keep growing while contributing to real products.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="alt">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="skill-group"><h3>Languages</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">C</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span></div>
+          </div>
+          <div class="skill-group"><h3>Web</h3>
+            <div class="tags"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">WordPress</span><span class="tag">WooCommerce</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="skill-group"><h3>Machine Learning</h3>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">Hugging Face</span><span class="tag">SHAP</span></div>
+          </div>
+          <div class="skill-group"><h3>Databases and Cloud</h3>
+            <div class="tags"><span class="tag">MongoDB</span><span class="tag">Firebase</span><span class="tag">Google Cloud</span></div>
+          </div>
+          <div class="skill-group"><h3>Tools</h3>
+            <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Linux</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>Web Developer, Natural Farming SPK</h3>
+          <p class="meta">Apr 2024 – Dec 2025 &middot; Remote</p>
+          <ul>
+            <li>Developed and maintained the company's e-commerce website using WordPress and WooCommerce.</li>
+            <li>Customized website functionality and improved user experience across product, cart, and checkout pages.</li>
+            <li>Managed website updates, performance optimization, and technical support.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>General Secretary, Programming Club</h3>
+          <p class="meta">2024 – 2026 &middot; Uttara University</p>
+          <ul>
+            <li>Led the club's executive committee in planning coding workshops, contests, and seminars.</li>
+            <li>Coordinated members and mentored junior students in programming fundamentals.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Class Representative (CR)</h3>
+          <p class="meta">2023 – 2026 &middot; Uttara University</p>
+          <ul>
+            <li>Served as the link between classmates, teachers, and the department for four years.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="alt">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>LifeDesk Web Application</h3>
+          <p class="meta">MERN stack &middot; Apr 2025</p>
+          <p>A full-stack task management app to improve productivity, with a responsive React.js frontend, RESTful APIs, and a MongoDB database.</p>
+          <div class="tags"><span class="tag">MongoDB</span><span class="tag">Express.js</span><span class="tag">React.js</span><span class="tag">Node.js</span></div>
+          <!-- Replace the link below with the real repository address -->
+          <p style="margin:12px 0 0"><a href="https://github.com/hossmurad?tab=repositories">View on GitHub &rarr;</a></p>
+        </div>
+        <div class="card">
+          <h3>Smart Home Automation System</h3>
+          <p class="meta">IoT project</p>
+          <p>Control home devices remotely: lock and unlock the door, switch lights on and off, and turn the air conditioner on and off automatically based on room temperature.</p>
+          <div class="tags"><span class="tag">Arduino / ESP32</span><span class="tag">C++</span><span class="tag">Firebase</span></div>
+          <p style="margin:12px 0 0"><a href="https://github.com/hossmurad?tab=repositories">View on GitHub &rarr;</a></p>
+        </div>
+        <div class="card">
+          <h3>Multimodal Depression Detection</h3>
+          <p class="meta">Undergraduate thesis</p>
+          <p>An explainable AI framework that fuses text (BERT), audio, and visual features from clinical interviews, with SHAP used to show which signals drive each prediction.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">SHAP</span></div>
+          <p style="margin:12px 0 0"><a href="https://github.com/hossmurad/daic-woz-multimodal-depression-detection">View on GitHub &rarr;</a></p>
+        </div>
+        <div class="card">
+          <h3>Bengali Fake News Detection</h3>
+          <p class="meta">Undergraduate thesis</p>
+          <p>Detecting fake news in Bengali text using federated learning, so models can be trained without centralizing user data.</p>
+          <div class="tags"><span class="tag">Federated Learning</span><span class="tag">Bengali NLP</span></div>
+          <p style="margin:12px 0 0"><a href="https://github.com/hossmurad/bengali-federated-fake-news">View on GitHub &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <h2>Education and Awards</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>B.Sc. in Computer Science and Engineering</h3>
+          <p class="meta">Uttara University &middot; Jan 2023 – Dec 2026 &middot; CGPA 3.94 / 4.00</p>
+        </div>
+        <div class="item">
+          <h3>Higher Secondary Certificate (HSC)</h3>
+          <p class="meta">Vasha Shaheed Abdul Jabbar Ansar VDP School and College &middot; 2020 &middot; GPA 5.00</p>
+        </div>
+        <div class="item">
+          <h3>Secondary School Certificate (SSC)</h3>
+          <p class="meta">Bhringraj Talebabad High School &middot; 2018 &middot; GPA 5.00</p>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:8px">
+        <div class="card">
+          <h3>Dean's Award</h3>
+          <p class="meta">Uttara University &middot; 2023, 2024, 2025, 2026</p>
+          <p style="margin:0">Outstanding academic performance in four consecutive years.</p>
+        </div>
+        <div class="card">
+          <h3>General Scholarship</h3>
+          <p class="meta">JSC and SSC</p>
+          <p style="margin:0">Awarded for outstanding results in the JSC and SSC examinations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>I'm open to junior developer roles and collaborations. Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:hossmurad@gmail.com">Email</a>
+        <a href="https://github.com/hossmurad/">GitHub</a>
+        <a href="https://linkedin.com/in/hossmurad/">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Md Murad Hossain
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
